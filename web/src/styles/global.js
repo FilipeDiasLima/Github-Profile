@@ -23,6 +23,13 @@ export default createGlobalStyle`
     max-width: 1112px;
     margin: 0 auto;
     padding: 95px 20px 10px 20px;
+
+    @media screen and (max-width: 1100px){
+      display: flex;
+      flex-direction: column;
+      padding: 95px 42px;
+      align-items: center;
+    }
   }
 
   h1 {

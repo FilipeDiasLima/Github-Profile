@@ -5,17 +5,23 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  height: 593px;
   padding: 17px;
   background: #71777B;
   border: none;
   border-radius: 8px;
   margin-top: 39px;
+
+  @media screen and (max-width: 1100px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 25px;
+  }
 `;
 
 export const InfoMain = styled.div`
   display: flex;
-  max-width: 320px;
+  width: 320px;
   flex-direction: column;
   align-items: center;
   padding: 5px 26px;
@@ -77,6 +83,43 @@ export const InfoMain = styled.div`
       border: 1px solid #38B636;
     }
   }
+
+  @media screen and (max-width: 1100px){
+    border: none;
+    padding: 0;
+    width: 360px;
+
+    img {
+      width: 350px;
+      height: 350px;
+    }
+
+    div {
+      width: 100%;
+      padding: 0;
+      align-items: flex-start;
+      
+      strong {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 18px;
+        margin: 16px 0;
+      }
+
+      p + p {
+        width: 100%;
+        font-size: 16px;
+        margin: 16px 0;
+      }
+    }
+    
+    button {
+      width: 100%;
+      height: 60px;
+    }
+  }
 `;
 
 export const InfoSecundary = styled.div`
@@ -110,5 +153,27 @@ export const InfoSecundary = styled.div`
     font-weight: normal;
     font-size: 20px;
     line-height: 30px;
+  }
+
+  @media screen and (max-width: 1100px){
+    margin-top: 50px;
+    padding: 0;
+    align-items: center;
+    width: 100%;
+
+    .statusInfo {
+      display: block;
+
+      li + li {
+        margin-top: 21px;
+      }
+    }
+    
+    strong {
+      font-size: 24px;
+      font-weight: bolder;
+      margin-top: 52px;
+      margin-bottom: 32px;
+    }
   }
 `;

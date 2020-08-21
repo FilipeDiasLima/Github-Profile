@@ -27,6 +27,22 @@ export const Header = styled.div`
     line-height: 32px;
     margin-top: 23px;
   }
+
+  @media screen and (max-width: 1100px){
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      justify-content: center;
+      align-self: center;
+      h1 {
+        font-size: 40px;
+        margin-left: 30px;
+      }
+    }
+  }
 `;
 
 export const Form = styled.div`
@@ -51,4 +67,5 @@ export const Form = styled.div`
     border: none;
     border-radius: 0 8px 8px 0;
   }
+  
 `;
