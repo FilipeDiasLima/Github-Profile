@@ -8,6 +8,7 @@
 <br/>
 
 <div align="center">
+  <img src="./images/gif_demo" width="650" />
   <img src="./images/userfound.png" width="650"/>
   <img src="./images/userfoundhover.png" width="650"/>
 </div>
