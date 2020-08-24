@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Header = styled.div`
   display: flex;
@@ -50,12 +50,23 @@ export const Form = styled.form`
   width: 408px;
   height: 55px;
   display: flex;
+  border-radius: 8px 8px 8px 8px;
+  border: 2px solid transparent;
+
+  ${props => props.hasError && css`
+      border-color: #c53030;
+  `}
+
+  ${props => props.hasCorrect && css`
+      border-color: #38B636;
+    `}
 
   input {
     width: 80%;
     background: #71777B;
-    border: none;
+    border: 0;
     border-radius: 8px 0 0 8px;
+    
     padding: 12px 20px;
     font-size: 18px;
     line-height: 27px;
@@ -253,6 +264,15 @@ export const InfoSecundary = styled.div`
       margin-bottom: 32px;
     }
   }
+`;
+
+export const Error = styled.span`
+  display: block;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  line-height: 80px;
+  color: #A0A0A0;
 `;
 
 export const Repositories = styled.div`

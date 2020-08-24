@@ -6,54 +6,64 @@ import bolinha from '../../assets/bolinha.png';
 import gitnetwork from '../../assets/git-network.png';
 import gitlogo from '../../assets/github-logo.png';
 
-import { Header, Form, Profile, InfoMain, InfoSecundary, Repositories } from './styles';
-import { Link } from 'react-router-dom';
+import { Header, Form, Profile, InfoMain, InfoSecundary, Repositories, Error } from './styles';
 
 export default function Dashboard() {
   const [profile, setProfile] = useState(false);
   const [newProfile, setNewProfile] = useState('');
+  const [inputError, setInputError] = useState('');
   const [repositories, setRepositories] = useState([]);
   const [infoProfile, setInfoProfile] = useState();
 
   async function handleProfile(e) {
     e.preventDefault();
 
-    const response = await api.get(`users/${newProfile}`);
-    const responseRepo = await api.get(`users/${newProfile}/repos`);
-
-    const {
-      avatar_url,
-      login,
-      name,
-      html_url,
-      repos_url,
-      bio,
-      public_repos,
-      followers,
-    } = response.data;
-
-    let starCount = 0;
-    let i = 0;
-    for (i = 0; i < responseRepo.data.length; ++i) {
-      starCount += responseRepo.data[i].stargazers_count;
+    if (!newProfile) {
+      setInputError('Write a git_login user');
+      return;
     }
 
-    const profile = {
-      avatar_url,
-      login,
-      name,
-      html_url,
-      repos_url,
-      bio,
-      public_repos,
-      followers,
-      starCount,
+    try {
+      const response = await api.get(`users/${newProfile}`);
+      const responseRepo = await api.get(`users/${newProfile}/repos`);
+
+      const {
+        avatar_url,
+        login,
+        name,
+        html_url,
+        repos_url,
+        bio,
+        public_repos,
+        followers,
+      } = response.data;
+
+      let starCount = 0;
+      let i = 0;
+      for (i = 0; i < responseRepo.data.length; ++i) {
+        starCount += responseRepo.data[i].stargazers_count;
+      }
+
+      const profile = {
+        avatar_url,
+        login,
+        name,
+        html_url,
+        repos_url,
+        bio,
+        public_repos,
+        followers,
+        starCount,
+      }
+
+      setInfoProfile(profile);
+      setProfile(true);
+      setRepositories(responseRepo.data);
+
+      setInputError('');
+    } catch (err) {
+      setInputError('User not found...:(');
     }
-
-    setInfoProfile(profile);
-    setProfile(true);
-    setRepositories(responseRepo.data);
-
   }
 
 
@@ -70,7 +80,7 @@ export default function Dashboard() {
         </div>
       </Header>
 
-      <Form onSubmit={handleProfile}>
+      <Form hasError={!!inputError} hasCorrect={infoProfile} onSubmit={handleProfile}>
         <input
           value={newProfile}
           onChange={e => setNewProfile(e.target.value)}
@@ -81,6 +91,8 @@ export default function Dashboard() {
           <FiSearch color="#FFF" size={30} />
         </button>
       </Form>
+
+      {inputError && <Error>{inputError}</Error>}
 
       {profile &&
         <Profile>
@@ -94,7 +106,7 @@ export default function Dashboard() {
               <p>{infoProfile.login}</p>
               <p>{infoProfile.bio}</p>
             </div>
-            <Link to="/"><button type="button">View on Github</button></Link>
+            <a href={infoProfile.html_url} target="_blank"><button type="button">View on Github</button></a>
           </InfoMain>
 
           <InfoSecundary>
@@ -119,7 +131,7 @@ export default function Dashboard() {
 
             <Repositories>
               {repositories.map(repository => (
-                <a key={repository.id} href="/">
+                <a key={repository.id} href={repository.html_url} target="_blank">
                   <div className="infos">
                     <strong>{repository.full_name}</strong>
                     <p>{repository.description}</p>
