@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FiSearch, FiStar, FiUsers, FiBook, FiChevronRight } from 'react-icons/fi'
 import api from '../../services';
 
@@ -106,7 +106,7 @@ export default function Dashboard() {
               <p>{infoProfile.login}</p>
               <p>{infoProfile.bio}</p>
             </div>
-            <a href={infoProfile.html_url} target="_blank"><button type="button">View on Github</button></a>
+            <a href={infoProfile.html_url} target="_blank" rel="noopener noreferrer"><button type="button">View on Github</button></a>
           </InfoMain>
 
           <InfoSecundary>
@@ -131,7 +131,7 @@ export default function Dashboard() {
 
             <Repositories>
               {repositories.map(repository => (
-                <a key={repository.id} href={repository.html_url} target="_blank">
+                <a key={repository.id} href={repository.html_url} target="_blank" rel="noopener noreferrer">
                   <div className="infos">
                     <strong>{repository.full_name}</strong>
                     <p>{repository.description}</p>
