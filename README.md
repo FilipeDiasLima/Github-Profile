@@ -21,11 +21,6 @@
 <br/>
 <br/>
 
-<div align="center">
-  <img src="./images/userfound.png" width="650"/>
-  <img src="./images/userfoundhover.png" width="650"/>
-</div>
-
 # :computer: How to run
 ```
  # Clone repository
@@ -42,3 +37,8 @@
  # cd Github-Profiles/web
  $ yarn start
 ```
+
+<div align="center">
+  <img src="./images/userfound.png" width="650"/>
+  <img src="./images/userfoundhover.png" width="650"/>
+</div>
