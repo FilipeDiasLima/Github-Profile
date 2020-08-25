@@ -11,11 +11,16 @@
   <img src="./images/gif_demo.gif" width="650" />
 </div>
 
+<br/>
+
 # :rocket: Techs
  * [ReactJS](https://reactjs.org/)
  * [Rest Api Github](https://docs.github.com/en/rest)
  * [Axios](https://github.com/axios/axios)
  
+<br/>
+<br/>
+
 <div align="center">
   <img src="./images/userfound.png" width="650"/>
   <img src="./images/userfoundhover.png" width="650"/>
