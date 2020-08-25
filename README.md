@@ -38,6 +38,8 @@
  # cd Github-Profiles/web
  $ yarn start
 ```
+<br/>
+<br/>
 
 <div align="center">
   <img src="./images/userfound.png" width="650"/>
