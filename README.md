@@ -9,11 +9,19 @@
 
 <div align="center">
   <img src="./images/gif_demo.gif" width="650" />
+</div>
+
+# :rocket: Techs
+ * [ReactJS](https://reactjs.org/)
+ * [Rest Api Github](https://docs.github.com/en/rest)
+ * [Axios](https://github.com/axios/axios)
+ 
+<div align="center">
   <img src="./images/userfound.png" width="650"/>
   <img src="./images/userfoundhover.png" width="650"/>
 </div>
 
-# How to run
+# :computer: How to run
 ```
  # Clone repository
  $ git clone https://github.com/FilipeDiasLima/Github-Profiles.git
