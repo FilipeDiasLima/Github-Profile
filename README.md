@@ -1,4 +1,6 @@
-
+<div align="center">
+  <img src="./images/title.png" />
+</div>
 
 <h5 align="center">A simple application using Github's API to get user profile informations</h5>
 
