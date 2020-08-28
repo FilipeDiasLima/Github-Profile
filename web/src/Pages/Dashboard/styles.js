@@ -1,34 +1,34 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   .title {
     display: flex;
     flex-direction: row;
-    width: 531px;
+    max-width: 531px;
     justify-content: space-between;
     align-items: center;
 
     h1 {
       font-style: normal;
       font-weight: normal;
-      font-size: 60px;
-      line-height: 69px;
+      font-size: 6rem;
+      line-height: 6.9rem;
     }
   }
 
   .description {
     font-style: normal;
     font-weight: normal;
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 2.8rem;
+    line-height: 3.2rem;
     margin-top: 23px;
   }
 
-  @media screen and (max-width: 1100px){
+  @media (max-width: 1100px) {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -37,36 +37,65 @@ export const Header = styled.div`
     .title {
       justify-content: center;
       align-self: center;
+
+      img {
+        width: 70px;
+        height: 70px;
+      }
+
       h1 {
-        font-size: 40px;
+        font-size: 4rem;
         margin-left: 30px;
       }
+    }
+  }
+
+  @media (max-width: 753px), (max-width: 376px) {
+    padding: 0;
+
+    .title {
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      h1 {
+        font-size: 3.4rem;
+      }
+    }
+
+    .description {
+      font-size: 1.8rem;
     }
   }
 `;
 
 export const Form = styled.form`
   margin-top: 52px;
-  width: 408px;
-  height: 55px;
+  max-width: 408px;
   display: flex;
+  background: #71777b;
   border-radius: 8px 8px 8px 8px;
   border: 2px solid transparent;
 
-  ${props => props.hasError && css`
+  ${(props) =>
+    props.hasError &&
+    css`
       border-color: #c53030;
-  `}
+    `}
 
-  ${props => props.hasCorrect && css`
-      border-color: #38B636;
+  ${(props) =>
+    props.hasCorrect &&
+    css`
+      border-color: #38b636;
     `}
 
   input {
     width: 80%;
-    background: #71777B;
+    background: transparent;
     border: 0;
     border-radius: 8px 0 0 8px;
-    
+
     padding: 12px 20px;
     font-size: 18px;
     line-height: 27px;
@@ -74,13 +103,17 @@ export const Form = styled.form`
 
   button {
     flex: 1;
-    background: #71777b;
+    background: transparent;
     border: none;
     border-radius: 0 8px 8px 0;
   }
 
-  @media screen and (max-width: 1100px){
+  @media (max-width: 1100px) {
     width: 100%;
+  }
+
+  @media (max-width: 753px), (max-width: 376px) {
+    max-height: 50px;
   }
 `;
 
@@ -90,22 +123,27 @@ export const Profile = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 17px;
-  background: #71777B;
+  background: #71777b;
   border: none;
   border-radius: 8px;
   margin-top: 39px;
 
-  @media screen and (max-width: 1100px){
-    display: flex;
+  @media (max-width: 1100px) {
     flex-direction: column;
     align-items: center;
     padding: 60px 25px;
+  }
+
+  @media (max-width: 753px), (max-width: 376px) {
+    flex-direction: column;
+    padding: 30px 20px;
+    align-items: center;
   }
 `;
 
 export const InfoMain = styled.div`
   display: flex;
-  width: 320px;
+  max-width: 32em;
   flex-direction: column;
   align-items: center;
   padding: 5px 26px;
@@ -127,16 +165,16 @@ export const InfoMain = styled.div`
     strong {
       font-style: normal;
       font-weight: bold;
-      font-size: 26px;
-      line-height: 39px;
+      font-size: 2.6rem;
+      line-height: 3.9rem;
     }
 
     p {
       margin-left: 5px;
       font-style: normal;
       font-weight: normal;
-      font-size: 18px;
-      line-height: 27px;
+      font-size: 1.8rem;
+      line-height: 2.7rem;
     }
 
     p + p {
@@ -144,12 +182,14 @@ export const InfoMain = styled.div`
       margin-top: 20px;
       font-style: normal;
       font-weight: normal;
-      font-size: 14px;
-      line-height: 21px;
+      font-size: 1.4rem;
+      line-height: 2.1rem;
     }
   }
 
   a {
+    max-width: 322px;
+
     button {
       text-decoration: none;
       align-self: center;
@@ -157,7 +197,7 @@ export const InfoMain = styled.div`
       width: 225px;
       height: 42px;
       border: none;
-      background: #61A360;
+      background: #61a360;
       border-radius: 8px;
       font-weight: bold;
       font-size: 18px;
@@ -165,16 +205,15 @@ export const InfoMain = styled.div`
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: #24292E;
-        border: 1px solid #38B636;
+        background-color: #24292e;
+        border: 1px solid #38b636;
       }
     }
   }
 
-  @media screen and (max-width: 1100px){
+  @media (max-width: 1100px) {
     border: none;
     padding: 0;
-    width: 360px;
 
     img {
       width: 350px;
@@ -185,7 +224,7 @@ export const InfoMain = styled.div`
       width: 100%;
       padding: 0;
       align-items: flex-start;
-      
+
       strong {
         font-size: 28px;
       }
@@ -201,10 +240,51 @@ export const InfoMain = styled.div`
         margin: 16px 0;
       }
     }
-    
-    button {
+
+    a {
+      display: flex;
       width: 100%;
-      height: 60px;
+      text-decoration: none;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 753px), (max-width: 376px) {
+    padding: 0 10px;
+
+    img {
+      width: 250px;
+      height: 250px;
+    }
+
+    div {
+      align-items: center;
+
+      strong {
+        font-size: 2.6rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+
+      & + p {
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+      }
+    }
+
+    a {
+      display: flex;
+      width: 100%;
+      text-decoration: none;
+
+      button {
+        width: 100%;
+      }
     }
   }
 `;
@@ -212,9 +292,9 @@ export const InfoMain = styled.div`
 export const InfoSecundary = styled.div`
   display: flex;
   flex-direction: column;
-  width: 670px;
+  max-width: 670px;
+  width: 100%;
   padding: 19px 55px 19px 0px;
-
 
   .statusInfo {
     display: flex;
@@ -228,8 +308,8 @@ export const InfoSecundary = styled.div`
 
       p {
         font-weight: normal;
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 2.4rem;
+        line-height: 3.6rem;
         margin-left: 18px;
         align-items: baseline;
       }
@@ -239,11 +319,11 @@ export const InfoSecundary = styled.div`
   strong {
     margin-top: 19px;
     font-weight: normal;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 2rem;
+    line-height: 3rem;
   }
 
-  @media screen and (max-width: 1100px){
+  @media (max-width: 1100px) {
     margin-top: 50px;
     padding: 0;
     align-items: center;
@@ -256,32 +336,38 @@ export const InfoSecundary = styled.div`
         margin-top: 21px;
       }
     }
-    
+
     strong {
-      font-size: 24px;
+      font-size: 2.4rem;
       font-weight: bolder;
       margin-top: 52px;
       margin-bottom: 32px;
     }
   }
+
+  @media (max-width: 753px), (max-width: 376px) {
+    width: 100%;
+  }
 `;
 
 export const Error = styled.span`
   display: block;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 70px;
   font-weight: bold;
   line-height: 80px;
-  color: #A0A0A0;
+  color: #a0a0a0;
 `;
 
 export const Repositories = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 16px;
   min-height: 116px;
   max-width: 670px;
 
   a {
-    background-color: transparent;
+    background-color: #24292e;
     border-radius: 8px;
     width: 100%;
     padding: 10px 20px;
@@ -294,7 +380,7 @@ export const Repositories = styled.div`
     margin-bottom: 10px;
 
     & + a {
-     margin-top: 16px;
+      margin-top: 16px;
     }
 
     .infos {
@@ -302,19 +388,19 @@ export const Repositories = styled.div`
       flex: 1;
 
       strong {
-        color: #FFF;
+        color: #fff;
         font-weight: normal;
         font-size: 18px;
         line-height: 24px;
       }
 
       p {
-        color: #FFF;
+        color: #fff;
         font-weight: normal;
         font-size: 14px;
         line-height: 18px;
       }
-      
+
       footer {
         display: flex;
         margin: 20px 0 0 0;
@@ -325,8 +411,8 @@ export const Repositories = styled.div`
           font-weight: normal;
           font-size: 12px;
           line-height: 18px;
-          color: #FFF;
-          
+          color: #fff;
+
           p {
             margin-left: 10px;
           }
@@ -338,8 +424,6 @@ export const Repositories = styled.div`
       }
     }
 
-  
-
     svg {
       align-self: center;
       margin-left: auto;
@@ -347,12 +431,41 @@ export const Repositories = styled.div`
     }
 
     &:hover {
-      background-color: #24292E;
-      border: 2px solid #38B636;
+      background-color: #24292e;
+      border: 2px solid #38b636;
     }
 
     &:hover {
       transform: translateX(10px);
+    }
+  }
+
+  @media (max-width: 753px), (max-width: 376px) {
+    width: 100%;
+
+    a {
+      .infos {
+        width: 80%;
+        overflow: hidden;
+
+        strong {
+          font-size: 1.6rem;
+        }
+        p {
+          font-size: 1.2rem;
+        }
+
+        div {
+          p {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      svg {
+        width: 20px;
+        height: 17.67px;
+      }
     }
   }
 `;
